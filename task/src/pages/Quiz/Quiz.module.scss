@@ -1,0 +1,11 @@
+.Quiz {
+  background-color: #222;
+  height: 100vh;
+  width: 100%;
+
+  &-container {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 40px;
+  }
+}
