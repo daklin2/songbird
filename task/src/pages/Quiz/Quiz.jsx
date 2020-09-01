@@ -15,12 +15,12 @@ const Quiz = ({
   setQuizScore,
   maxQuizLevel,
 }) => {
+  const [gameIsActive, setGameIsActive] = useState(true);
+  const [gameIsOver, setGameIsOver] = useState(false);
+  const [quizScoreToGet, setQuizScoreToGet] = useState(5);
   const [rightAnswerIndex, setRightAnswerIndex] = useState(
     Math.floor(Math.random() * birdsData[quizLevel].length)
   );
-  const [gameIsActive, setGameIsActive] = useState(true);
-  const [quizScoreToGet, setQuizScoreToGet] = useState(5);
-  const [gameIsOver, setGameIsOver] = useState(false);
   const [currentQuestionObj, setCurrentQuestionObj] = useState(
     birdsData[quizLevel].map((el) => ({ ...el, status: 'inactive' }))
   );
@@ -59,6 +59,7 @@ const Quiz = ({
   useEffect(() => {
     setCurrentQuestionObj(birdsData[quizLevel].map((el) => ({ ...el, status: 'inactive' })));
     setRightAnswerIndex(Math.floor(Math.random() * birdsData[quizLevel].length));
+    // eslint-disable-next-line
   }, [quizLevel]);
 
   const quizDescriptionHtml = () => (
