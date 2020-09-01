@@ -66,7 +66,7 @@ const Quiz = ({
     <>
       <div className={Styles.Quiz__instruction_body}>
         <img
-          className={Styles['Quiz__instruction_body-img']}
+          className={Styles['Quiz-img']}
           src={currentQuestionObj[chosenBirdIndex].image}
           alt={currentQuestionObj[chosenBirdIndex].name}
         />
@@ -77,7 +77,15 @@ const Quiz = ({
           <div className={Styles['Quiz__instruction_body-species']}>
             {currentQuestionObj[chosenBirdIndex].species}
           </div>
-          {/* <div className={Styles['Quiz__instruction_body-name']}>currentQuestionObj[chosenBirdIndex].name</div> */}
+          {/* eslint-disable-next-line */}
+          <audio
+            key={currentQuestionObj[chosenBirdIndex].name}
+            className={Styles['Quiz-audio']}
+            controls
+          >
+            <source src={currentQuestionObj[chosenBirdIndex].audio} type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       </div>
       <div className={Styles.Quiz__instruction_description}>
@@ -110,7 +118,9 @@ const Quiz = ({
         })}
       </div>
       <div className={Styles.Quiz__instruction}>
-        {chosenBirdIndex !== null ? quizDescriptionHtml() : <div>Выберите ответ</div>}
+        <div className={Styles['Quiz__instruction-container']}>
+          {chosenBirdIndex !== null ? quizDescriptionHtml() : <div>Выберите ответ</div>}
+        </div>
       </div>
     </div>
   );
@@ -119,7 +129,34 @@ const Quiz = ({
     <div className={Styles.Quiz}>
       <div className={Styles['Quiz-container']}>
         <Header />
-        <div />
+        <div className={Styles.Quiz__preview}>
+          {gameIsActive ? (
+            <div className={Styles['Quiz__preview-img']} />
+          ) : (
+            <img
+              className={Styles['Quiz-img']}
+              src={currentQuestionObj[rightAnswerIndex].image}
+              alt={currentQuestionObj[rightAnswerIndex].name}
+            />
+          )}
+          <div className={Styles.Quiz__preview_question}>
+            <div className={Styles['Quiz__preview_question-header']}>
+              {gameIsActive ? '******' : currentQuestionObj[rightAnswerIndex].name}
+            </div>
+            <div>
+              {/* eslint-disable-next-line */}
+              <audio
+                key={currentQuestionObj[rightAnswerIndex].name}
+                className={Styles['Quiz-audio']}
+                controls
+              >
+                <source src={currentQuestionObj[rightAnswerIndex].audio} type="audio/mp3" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        </div>
+
         {!gameIsOver ? (
           quizInteractiveSectionHtml()
         ) : (

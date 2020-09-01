@@ -1,7 +1,64 @@
 .Quiz {
   background-color: #222;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+
+  &-img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10px;
+    height: 155px;
+    margin: 0;
+    width: 200px;
+  }
+
+  &__preview {
+    background-color: #303030;
+    border-radius: 0.25rem;
+    color: #fff;
+    display: flex;
+    margin-bottom: 25px;
+    padding: 1rem;
+  }
+
+  &__preview-img {
+    background-image: url('../../assets/bird.06a46938.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10px;
+    height: 155px;
+    margin: 0;
+    width: 200px;
+  }
+
+  &__preview_question {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    margin-left: 40px;
+    padding-left: 0;
+    width: calc(100% - 240px);
+  }
+
+  &__preview_question-header {
+    background-color: #303030;
+    border: 1px solid #555;
+    border-left-width: 0;
+    border-radius: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    font-size: 2rem;
+    padding: 0.25rem;
+
+  }
+
+  &-audio {
+    margin: 10px 40px 8px 0;
+    min-width: 100px;
+    outline: 0;
+    padding: 0.25rem;
+    width: 100%;
+  }
 
   &-container {
     //display: flex;
@@ -78,17 +135,22 @@
     background-color: #303030;
     border: 0.25px solid #555;
     border-left-width: 0.5px;
+    border-radius: 0.25rem;
     border-right-width: 0.5px;
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     transition: 0.3s;
     width: calc(48% - 1rem);
   }
 
+  &__instruction-container {
+    padding: 1rem;
+  }
+
   &__instruction_body {
     display: flex;
+    flex-wrap: wrap;
     min-height: 173px;
     width: 100%;
   }
@@ -141,6 +203,7 @@
     background-color: #00bc8c;
     border-radius: 8px;
     color: #fff;
+    margin-bottom: 30px;
     margin-top: 30px;
     padding: 10px;
     transition: 0.3s;
@@ -150,5 +213,46 @@
   &__next:hover {
     background-color: #00e4b0;
     transition: 0.3s;
+  }
+}
+
+@media (max-width: 700px) {
+  .Quiz {
+    &__interactive {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__questions {
+      display: flex;
+    }
+
+    &__questions-container {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    &__instruction {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .Quiz {
+    &__preview {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__preview_question {
+      margin: 20px 0 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    &__preview &-audio {
+      width: 100%;
+    }
   }
 }
