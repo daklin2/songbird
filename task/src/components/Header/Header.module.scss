@@ -1,7 +1,6 @@
 .Header {
   display: flex;
   flex-direction: column;
-  height: 80px;
   width: 100%;
 }
 
@@ -41,16 +40,13 @@
   &_items {
     flex: auto;
     text-align: center;
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
-    //height: 30px;
-    //min-width: 100px;
   }
 
   &_items-link {
     border: 0 solid transparent;
+    border-radius: 0;
     color: #fff;
+    cursor: default;
     display: block;
     line-height: 1.25;
     margin-left: 0;
@@ -60,13 +56,20 @@
     width: 100%;
   }
 
+  &_items:nth-child(1) &_items-link {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &_items:last-child &_items-link {
+    border-radius: 0 5px 5px 0;
+  }
+
   &_items-link--active {
     background-color: #00bc8c;
   }
 
   &_items-link:hover {
-    background-color: rgba(0, 188, 140, 0.55);
-    cursor: pointer;
+    //background-color: rgba(0, 188, 140, 0.55);
     transition: 0.3s;
   }
 }
