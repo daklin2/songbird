@@ -10,7 +10,6 @@ const Header = ({ birdsSubTitles, quizLevel, quizScore }) => {
       <div className={Styles.Header__top}>
         <div className={Styles['Header__top-logo']} />
         <div className={Styles['Header__top-score']}>
-          {' '}
           Score:
           {quizScore}
         </div>

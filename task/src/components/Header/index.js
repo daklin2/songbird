@@ -9,8 +9,4 @@ const mapStateToProps = ({ quiz: { level, score } }) => ({
   quizScore: score,
 });
 
-// const mapToDispatch = (dispatch) => ({
-//
-// });
-
 export default connect(mapStateToProps)(Header);
